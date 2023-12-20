@@ -125,6 +125,15 @@ bool TinyGPSPlus::encode(char c) {
   return false;
 }
 
+bool TinyGPSPlus::encode(char *c, std::size_t len) {
+  bool bRet = false;
+
+  for (std::size_t i = 0; i < len; i++)
+    bRet |= encode(c[i]);
+
+  return bRet;  // Return true if one of the characters resulted in a valid sentence
+}
+
 //
 // internal utilities
 //

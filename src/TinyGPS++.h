@@ -259,7 +259,8 @@ class TinyGPSCustom {
 class TinyGPSPlus {
  public:
   TinyGPSPlus();
-  bool encode(char c);  // process one character received from GPS
+  bool encode(char c);                    // process one character received from GPS
+  bool encode(char *c, std::size_t len);  // process len characters received from GPS
   TinyGPSPlus &operator<<(char c) {
     encode(c);
     return *this;
